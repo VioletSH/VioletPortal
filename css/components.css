@@ -1,0 +1,230 @@
+/*Animations*/
+  
+@keyframes wave {
+    50% {
+      transform: scale(0.9);
+    }
+}
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+
+/*We define the css variables in the body to be accesible from other elements*/
+body{
+    --bg-darker: #33006A;
+    --bg-ligher: #993FCB;
+
+    --bg-gradient: linear-gradient(to right, #993FCB, #33006A);
+    --bg-gradient-alt: linear-gradient(to right, transparent, #33006A);
+
+    --color-ppal: #8C37BE;
+}
+/*Buttons*/
+.btn{
+    border-radius: 0 !important; /*Overrides Bootstrap roundness*/
+}
+.btn-violet-primary{
+    background: var(--bg-gradient);
+    color: white !important;
+    width: fit-content;
+}
+
+/*Standard Inputs*/
+/* form starting stylings ------------------------------- */
+.text-input { 
+    position:relative; 
+    margin: 0.8em 0;
+}
+.text-input input {
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+}
+.text-input input:focus { outline:none; }
+
+/* LABEL ======================================= */
+.text-input label 				 {
+    color:#999; 
+    font-size: 1em;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.text-input input:focus ~ label, .text-input input:valid ~ label 		{
+    top:-1.2em;
+    font-size:0.9em;
+    color: var(--color-ppal);
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+    content:'';
+    height:2px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background:var(--color-ppal);
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
+.bar:before {
+    left:50%;
+}
+.bar:after {
+    right:50%; 
+}
+
+/* active state */
+.text-input input:focus ~ .bar:before, .text-input input:focus ~ .bar:after {
+    width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position:absolute;
+    height:60%; 
+    width:100px; 
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+-webkit-animation:inputHighlighter 0.3s ease;
+-moz-animation:inputHighlighter 0.3s ease;
+animation:inputHighlighter 0.3s ease;
+}
+/*End of standard inputs*/
+
+/*Chebox*/
+.cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+}
+.cbx span:first-child {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #9098A9;
+    transition: all 0.2s ease;
+    }
+    .cbx span:first-child svg {
+    position: absolute;
+    top: 0.15em;
+    left: 0.08em;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+}
+.cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--bg-ligher);
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+}
+.cbx span:last-child {
+    padding-left: 8px;
+}
+.cbx:hover span:first-child {
+    border-color: #506EEC;
+}
+
+.inp-cbx:checked + .cbx span:first-child {
+    background: var(--bg-darker);    
+    border-color: var(--bg-darker);   
+    animation: wave 0.4s ease;
+}
+.inp-cbx:checked + .cbx span:first-child svg {
+    stroke-dashoffset: 0;   
+}
+.inp-cbx:checked + .cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+/*End of Checkbox*/
+
+/*____________________SHAPES________________________*/
+
+.hex {
+    position: relative;
+    height: Calc(0.875 * var(--hex-width));
+    width: var(--hex-width);
+    color: white;
+    background: var(--bg-gradient);
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .25s;
+}
+.hex::before {
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    z-index: -2;
+    bottom: 1%;
+    content: '';
+    background: white;
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+.hex::after {
+    position: absolute;
+    width: 94%;
+    height: 94%;
+    z-index: -1;
+    bottom: 3%;
+    content: '';
+    background: var(--bg-gradient);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+/*__________________________________________________*/
