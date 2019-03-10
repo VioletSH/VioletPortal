@@ -4,9 +4,6 @@ body{
 section{
     min-height: 100vh;
 }
-img{
-    max-height: 100vh;
-}
 #img-bg-hex{
     left: -7%;
 }

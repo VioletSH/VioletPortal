@@ -9,6 +9,30 @@
     <title>Document</title>
 </head>
 <body class="row justify-content-around">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light col-8">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo1.png" alt="" height="50px">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto col-12">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+                <li class="ml-auto">
+                    <div class="btn-hex-right hex"> 
+                            btn right
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </nav>
     <section class="col-12 d-flex flex-column justify-content-center align-items-center">
         <h1>Headers H1</h1>
         <h2>Headers H2</h2>
@@ -39,6 +63,10 @@
                     <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                 </svg></span><span>Checkbox</span>
             </label>
+            <label class="switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider hex"></div>
+            </label>
             <br><br><br>
         </div>
     </section>
@@ -51,6 +79,44 @@
         <h1>Shapes</h1>
         <div class="hex" style="--hex-width:10em">
             <h3>Basic Hex</h3>
+        </div>
+        <div class="hex hex-big-item">
+            <h3>Long hex</h3>
+        </div>
+        <div class="hex hex-big-item">
+            <div class="hex hex-big-item d-flex">
+                <div class="item-content d-flex flex-column">
+                    <h3>Materia</h3>
+                    <h6>Profesión</h6>
+                    <span>Total estudiantes</span>
+                </div>
+                <div class="hex ml-auto">
+                    Info
+                </div>
+            </div>
+        </div>
+        <div class="hex hex-big-item">
+            <div class="hex hex-big-item d-flex">
+                <div class="item-content d-flex flex-column">
+                    <h3>Materia</h3>
+                    <h6>Profesión</h6>
+                    <span>Total estudiantes</span>
+                </div>
+                <div class="hex ml-auto" style="background:var(--bg-gradient-alt);">
+                    Info
+                </div>
+            </div>
+        </div>
+        <div class="hex hex-big-item hex-big-add">
+            <div class="hex d-flex justify-content-center align-items-center">
+                <i>&#43</i>
+            </div>
+        </div>
+        <div class="btn-hex-right hex"> 
+            btn right
+        </div>
+        <div class="btn-hex-left hex"> 
+            btn left
         </div>
         <br><br><br>
     </section>
